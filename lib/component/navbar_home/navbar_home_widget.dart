@@ -110,13 +110,13 @@ class _NavbarHomeWidgetState extends State<NavbarHomeWidget> {
                                           text:
                                               'https://vcard.solarion.id/${FFAppState().uSlug}'));
                                       await Share.share(
-                                        FFAppState().urlShare,
+                                        'https://vcard.solarion.id/${FFAppState().uSlug}',
                                         sharePositionOrigin:
                                             getWidgetBoundingBox(context),
                                       );
                                     } else {
                                       await Share.share(
-                                        FFAppState().urlShare,
+                                        'https://vcard.solarion.id/${FFAppState().uSlug}',
                                         sharePositionOrigin:
                                             getWidgetBoundingBox(context),
                                       );

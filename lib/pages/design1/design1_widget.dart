@@ -47,61 +47,42 @@ class _Design1WidgetState extends State<Design1Widget> {
           name: widget.name,
         );
         if ((_model.apiResultProfile?.jsonBody ?? '')) {
-          if (CmsGroup.getProfileCall
-                  .data(
-                    (_model.apiResultProfile?.jsonBody ?? ''),
-                  ).isNotEmpty) {
-            FFAppState().update(() {
-              FFAppState().uName = CmsGroup.getProfileCall.name(
-                (_model.apiResultProfile?.jsonBody ?? ''),
-              )!;
-              FFAppState().uEmail = CmsGroup.getProfileCall.email(
-                (_model.apiResultProfile?.jsonBody ?? ''),
-              )!;
-              FFAppState().uPhone = CmsGroup.getProfileCall.phone(
-                (_model.apiResultProfile?.jsonBody ?? ''),
-              )!;
-              FFAppState().uWhatsapp = CmsGroup.getProfileCall.whatsapp(
-                (_model.apiResultProfile?.jsonBody ?? ''),
-              )!;
-              FFAppState().uTitle = CmsGroup.getProfileCall.title(
-                (_model.apiResultProfile?.jsonBody ?? ''),
-              )!;
-              FFAppState().uPhoto = CmsGroup.getProfileCall.photourl(
-                (_model.apiResultProfile?.jsonBody ?? ''),
-              )!;
-              FFAppState().uSlug = CmsGroup.getProfileCall.slug(
-                (_model.apiResultProfile?.jsonBody ?? ''),
-              )!;
-              FFAppState().uId = CmsGroup.getProfileCall
-                  .idUser(
-                    (_model.apiResultProfile?.jsonBody ?? ''),
-                  )!
-                  .toString();
-              FFAppState().uQr = CmsGroup.getProfileCall.qrUser(
-                (_model.apiResultProfile?.jsonBody ?? ''),
-              )!;
-              FFAppState().uCompany = CmsGroup.getProfileCall
-                  .companyUser(
-                    (_model.apiResultProfile?.jsonBody ?? ''),
-                  )
-                  .toString();
-            });
-          } else {
-            context.safePop();
-            ScaffoldMessenger.of(context).showSnackBar(
-              SnackBar(
-                content: const Text(
-                  'Data Not Found',
-                  style: TextStyle(
-                    color: Colors.white,
-                  ),
-                ),
-                duration: const Duration(milliseconds: 4000),
-                backgroundColor: FlutterFlowTheme.of(context).tertiary,
-              ),
-            );
-          }
+          FFAppState().update(() {
+            FFAppState().uName = CmsGroup.getProfileCall.name(
+              (_model.apiResultProfile?.jsonBody ?? ''),
+            )!;
+            FFAppState().uEmail = CmsGroup.getProfileCall.email(
+              (_model.apiResultProfile?.jsonBody ?? ''),
+            )!;
+            FFAppState().uPhone = CmsGroup.getProfileCall.phone(
+              (_model.apiResultProfile?.jsonBody ?? ''),
+            )!;
+            FFAppState().uWhatsapp = CmsGroup.getProfileCall.whatsapp(
+              (_model.apiResultProfile?.jsonBody ?? ''),
+            )!;
+            FFAppState().uTitle = CmsGroup.getProfileCall.title(
+              (_model.apiResultProfile?.jsonBody ?? ''),
+            )!;
+            FFAppState().uPhoto = CmsGroup.getProfileCall.photourl(
+              (_model.apiResultProfile?.jsonBody ?? ''),
+            )!;
+            FFAppState().uSlug = CmsGroup.getProfileCall.slug(
+              (_model.apiResultProfile?.jsonBody ?? ''),
+            )!;
+            FFAppState().uId = CmsGroup.getProfileCall
+                .idUser(
+                  (_model.apiResultProfile?.jsonBody ?? ''),
+                )!
+                .toString();
+            FFAppState().uQr = CmsGroup.getProfileCall.qrUser(
+              (_model.apiResultProfile?.jsonBody ?? ''),
+            )!;
+            FFAppState().uCompany = CmsGroup.getProfileCall
+                .companyUser(
+                  (_model.apiResultProfile?.jsonBody ?? ''),
+                )
+                .toString();
+          });
         } else {
           context.safePop();
           ScaffoldMessenger.of(context).showSnackBar(

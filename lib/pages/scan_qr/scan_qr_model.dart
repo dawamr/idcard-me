@@ -6,11 +6,7 @@ class ScanQrModel extends FlutterFlowModel<ScanQrWidget> {
   ///  State fields for stateful widgets in this page.
 
   final unfocusNode = FocusNode();
-  bool isDataUploading = false;
-  FFUploadedFile uploadedLocalFile =
-      FFUploadedFile(bytes: Uint8List.fromList([]));
-
-  var resultQr = '';
+  var scanQr = '';
 
   /// Initialization and disposal methods.
 

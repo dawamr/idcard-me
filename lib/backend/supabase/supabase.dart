@@ -1,7 +1,6 @@
 import 'package:supabase_flutter/supabase_flutter.dart' hide Provider;
 
 export 'database/database.dart';
-export 'storage/storage.dart';
 
 const _kSupabaseUrl = 'https://hsbgmkwzkjoxyqsdteea.supabase.co';
 const _kSupabaseAnonKey =

@@ -21,7 +21,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
   <meta name="apple-mobile-web-app-title" content="IDCard - Solarion">
 
-  
+  <meta name="format-detection" content="telephone=yes">
+
 
   <meta name="robots" content="noindex" />
 
@@ -71,7 +72,7 @@
         },
         onEntrypointLoaded: async function(engineInitializer) {
           // Initialize the Flutter engine
-          let appRunner = await engineInitializer.initializeEngine({useColorEmoji: true,});
+          let appRunner = await engineInitializer.initializeEngine({});
           // Run the app
           await appRunner.runApp();
         }

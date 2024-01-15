@@ -206,7 +206,7 @@ class _BarcodeViewWidgetState extends State<BarcodeViewWidget> {
                                     ),
                                   ),
                                   Text(
-                                    'PT. Solarion Energi Alam',
+                                    FFAppState().uCompany,
                                     style: FlutterFlowTheme.of(context)
                                         .bodyMedium
                                         .override(
@@ -245,6 +245,8 @@ class _BarcodeViewWidgetState extends State<BarcodeViewWidget> {
                                     await Clipboard.setData(ClipboardData(
                                         text:
                                             'https://vcard.solarion.co/${FFAppState().uSlug}'));
+                                    await launchURL(
+                                        'https://cmsvcard.solarion.id/assets/${FFAppState().uQr}');
                                   },
                                   child: ClipRRect(
                                     borderRadius: BorderRadius.circular(8.0),
@@ -257,15 +259,13 @@ class _BarcodeViewWidgetState extends State<BarcodeViewWidget> {
                               ),
                             ),
                           ),
-                          if (false)
+                          if (isWeb != false)
                             Padding(
                               padding: const EdgeInsetsDirectional.fromSTEB(
                                   0.0, 50.0, 0.0, 0.0),
                               child: FFButtonWidget(
-                                onPressed: () async {
-                                  await Clipboard.setData(ClipboardData(
-                                      text:
-                                          'https://vcard.solarion.co/${FFAppState().uSlug}'));
+                                onPressed: () {
+                                  print('Button pressed ...');
                                 },
                                 text: 'Take Shoot !',
                                 options: FFButtonOptions(

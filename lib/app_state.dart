@@ -47,6 +47,9 @@ class FFAppState extends ChangeNotifier {
     _safeInit(() {
       _uQr = prefs.getString('ff_uQr') ?? _uQr;
     });
+    _safeInit(() {
+      _uCompany = prefs.getString('ff_uCompany') ?? _uCompany;
+    });
   }
 
   void update(VoidCallback callback) {
@@ -63,7 +66,7 @@ class FFAppState extends ChangeNotifier {
     prefs.setBool('ff_darkmode', value);
   }
 
-  String _urlShare = 'https://dawamraja.pro';
+  String _urlShare = 'https://vcard.solarion.id';
   String get urlShare => _urlShare;
   set urlShare(String value) {
     _urlShare = value;
@@ -130,6 +133,19 @@ class FFAppState extends ChangeNotifier {
   set uQr(String value) {
     _uQr = value;
     prefs.setString('ff_uQr', value);
+  }
+
+  String _uCompany = '';
+  String get uCompany => _uCompany;
+  set uCompany(String value) {
+    _uCompany = value;
+    prefs.setString('ff_uCompany', value);
+  }
+
+  String _baseUrl = 'https://vcard.solarion.id';
+  String get baseUrl => _baseUrl;
+  set baseUrl(String value) {
+    _baseUrl = value;
   }
 }
 

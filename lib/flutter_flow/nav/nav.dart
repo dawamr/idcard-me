@@ -44,7 +44,7 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
                 ),
               ),
             )
-          : const PreloaderWidget(),
+          : const ScanQrWidget(),
       routes: [
         FFRoute(
           name: '_initialize',
@@ -63,11 +63,11 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
                     ),
                   ),
                 )
-              : const PreloaderWidget(),
+              : const ScanQrWidget(),
         ),
         FFRoute(
           name: 'Design1',
-          path: '/profiles/:name',
+          path: '/:name',
           builder: (context, params) => Design1Widget(
             name: params.getParam('name', ParamType.String),
           ),
@@ -86,7 +86,7 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
         ),
         FFRoute(
           name: 'preloader',
-          path: '/:name',
+          path: '/preloader',
           builder: (context, params) => PreloaderWidget(
             name: params.getParam('name', ParamType.String),
           ),
@@ -99,7 +99,9 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
         FFRoute(
           name: 'scanQr',
           path: '/scanQr',
-          builder: (context, params) => const ScanQrWidget(),
+          builder: (context, params) => ScanQrWidget(
+            data: params.getParam('data', ParamType.bool),
+          ),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );

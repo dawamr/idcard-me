@@ -31,6 +31,7 @@ class _PreloaderWidgetState extends State<PreloaderWidget>
   final animationsMap = {
     'textOnPageLoadAnimation': AnimationInfo(
       loop: true,
+      reverse: true,
       trigger: AnimationTrigger.onPageLoad,
       effects: [
         MoveEffect(
@@ -39,13 +40,6 @@ class _PreloaderWidgetState extends State<PreloaderWidget>
           duration: 600.ms,
           begin: const Offset(-30.0, 0.0),
           end: const Offset(30.0, 0.0),
-        ),
-        FadeEffect(
-          curve: Curves.easeInOut,
-          delay: 550.ms,
-          duration: 200.ms,
-          begin: 1.0,
-          end: 0.0,
         ),
       ],
     ),
@@ -64,49 +58,37 @@ class _PreloaderWidgetState extends State<PreloaderWidget>
         );
         if ((_model.apiResultProfile?.jsonBody ?? '')) {
           FFAppState().update(() {
-            FFAppState().uName = CmsGroup.getProfileCall
-                .name(
-                  (_model.apiResultProfile?.jsonBody ?? ''),
-                )
-                .toString();
-            FFAppState().uEmail = CmsGroup.getProfileCall
-                .email(
-                  (_model.apiResultProfile?.jsonBody ?? ''),
-                )
-                .toString();
-            FFAppState().uPhone = CmsGroup.getProfileCall
-                .phone(
-                  (_model.apiResultProfile?.jsonBody ?? ''),
-                )
-                .toString();
-            FFAppState().uWhatsapp = CmsGroup.getProfileCall
-                .whatsapp(
-                  (_model.apiResultProfile?.jsonBody ?? ''),
-                )
-                .toString();
-            FFAppState().uTitle = CmsGroup.getProfileCall
-                .title(
-                  (_model.apiResultProfile?.jsonBody ?? ''),
-                )
-                .toString();
-            FFAppState().uPhoto = CmsGroup.getProfileCall
-                .photourl(
-                  (_model.apiResultProfile?.jsonBody ?? ''),
-                )
-                .toString();
-            FFAppState().uSlug = CmsGroup.getProfileCall
-                .slug(
-                  (_model.apiResultProfile?.jsonBody ?? ''),
-                )
-                .toString();
+            FFAppState().uName = CmsGroup.getProfileCall.name(
+              (_model.apiResultProfile?.jsonBody ?? ''),
+            )!;
+            FFAppState().uEmail = CmsGroup.getProfileCall.email(
+              (_model.apiResultProfile?.jsonBody ?? ''),
+            )!;
+            FFAppState().uPhone = CmsGroup.getProfileCall.phone(
+              (_model.apiResultProfile?.jsonBody ?? ''),
+            )!;
+            FFAppState().uWhatsapp = CmsGroup.getProfileCall.whatsapp(
+              (_model.apiResultProfile?.jsonBody ?? ''),
+            )!;
+            FFAppState().uTitle = CmsGroup.getProfileCall.title(
+              (_model.apiResultProfile?.jsonBody ?? ''),
+            )!;
+            FFAppState().uPhoto = CmsGroup.getProfileCall.photourl(
+              (_model.apiResultProfile?.jsonBody ?? ''),
+            )!;
+            FFAppState().uSlug = CmsGroup.getProfileCall.slug(
+              (_model.apiResultProfile?.jsonBody ?? ''),
+            )!;
             FFAppState().uId = CmsGroup.getProfileCall
                 .idUser(
                   (_model.apiResultProfile?.jsonBody ?? ''),
-                )
-                .toString()
+                )!
                 .toString();
-            FFAppState().uQr = CmsGroup.getProfileCall
-                .qrUser(
+            FFAppState().uQr = CmsGroup.getProfileCall.qrUser(
+              (_model.apiResultProfile?.jsonBody ?? ''),
+            )!;
+            FFAppState().uCompany = CmsGroup.getProfileCall
+                .companyUser(
                   (_model.apiResultProfile?.jsonBody ?? ''),
                 )
                 .toString();
@@ -129,10 +111,26 @@ class _PreloaderWidgetState extends State<PreloaderWidget>
             },
           );
         } else {
-          context.pushNamed('scanQr');
+          context.pushNamed(
+            'scanQr',
+            queryParameters: {
+              'data': serializeParam(
+                false,
+                ParamType.bool,
+              ),
+            }.withoutNulls,
+          );
         }
       } else {
-        context.pushNamed('scanQr');
+        context.pushNamed(
+          'scanQr',
+          queryParameters: {
+            'data': serializeParam(
+              false,
+              ParamType.bool,
+            ),
+          }.withoutNulls,
+        );
       }
     });
 
@@ -167,7 +165,7 @@ class _PreloaderWidgetState extends State<PreloaderWidget>
         onWillPop: () async => false,
         child: Scaffold(
           key: scaffoldKey,
-          backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
+          backgroundColor: const Color(0xFFF0F0F0),
           body: SafeArea(
             top: true,
             child: Align(
@@ -177,8 +175,8 @@ class _PreloaderWidgetState extends State<PreloaderWidget>
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  Image.asset(
-                    'assets/images/Cube-1s-200px.gif',
+                  Image.network(
+                    'https://cmsvcard.solarion.id/assets/25e7e7af-c665-4c8b-927f-0115dc6839f2',
                     width: 100.0,
                     height: 100.0,
                     fit: BoxFit.cover,
@@ -187,10 +185,11 @@ class _PreloaderWidgetState extends State<PreloaderWidget>
                     padding:
                         const EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 0.0),
                     child: Text(
-                      'Loading...',
+                      'Please Wait...',
                       style: FlutterFlowTheme.of(context).bodyMedium.override(
                             fontFamily: 'Readex Pro',
-                            color: FlutterFlowTheme.of(context).primaryText,
+                            color: const Color(0xFFB05600),
+                            fontSize: 20.0,
                           ),
                     ).animateOnPageLoad(
                         animationsMap['textOnPageLoadAnimation']!),

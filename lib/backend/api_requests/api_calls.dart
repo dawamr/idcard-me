@@ -40,46 +40,50 @@ class GetProfileCall {
     );
   }
 
-  dynamic name(dynamic response) => getJsonField(
+  String? name(dynamic response) => castToType<String>(getJsonField(
         response,
         r'''$.data[:].name''',
-      );
-  dynamic email(dynamic response) => getJsonField(
+      ));
+  String? email(dynamic response) => castToType<String>(getJsonField(
         response,
         r'''$.data[:].email''',
-      );
-  dynamic whatsapp(dynamic response) => getJsonField(
+      ));
+  String? whatsapp(dynamic response) => castToType<String>(getJsonField(
         response,
         r'''$.data[:].whatsapp''',
-      );
-  dynamic phone(dynamic response) => getJsonField(
+      ));
+  String? phone(dynamic response) => castToType<String>(getJsonField(
         response,
         r'''$.data[:].phone''',
-      );
+      ));
   List? data(dynamic response) => getJsonField(
         response,
         r'''$.data''',
         true,
       ) as List?;
-  dynamic title(dynamic response) => getJsonField(
+  String? title(dynamic response) => castToType<String>(getJsonField(
         response,
         r'''$.data[:].title''',
-      );
-  dynamic photourl(dynamic response) => getJsonField(
+      ));
+  String? photourl(dynamic response) => castToType<String>(getJsonField(
         response,
         r'''$.data[:].photo.filename_disk''',
-      );
-  dynamic slug(dynamic response) => getJsonField(
+      ));
+  String? slug(dynamic response) => castToType<String>(getJsonField(
         response,
         r'''$.data[:].slug''',
-      );
-  dynamic idUser(dynamic response) => getJsonField(
+      ));
+  int? idUser(dynamic response) => castToType<int>(getJsonField(
         response,
         r'''$.data[:].id''',
-      );
-  dynamic qrUser(dynamic response) => getJsonField(
+      ));
+  String? qrUser(dynamic response) => castToType<String>(getJsonField(
         response,
         r'''$.data[:].qr.filename_disk''',
+      ));
+  dynamic companyUser(dynamic response) => getJsonField(
+        response,
+        r'''$.data[:].company''',
       );
 }
 

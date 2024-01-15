@@ -1,16 +1,10 @@
-import '/backend/api_requests/api_calls.dart';
-import '/component/navbar_home/navbar_home_widget.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import 'design1_widget.dart' show Design1Widget;
+import 'profile_edit_widget.dart' show ProfileEditWidget;
 import 'package:flutter/material.dart';
 
-class Design1Model extends FlutterFlowModel<Design1Widget> {
-  ///  State fields for stateful widgets in this page.
+class ProfileEditModel extends FlutterFlowModel<ProfileEditWidget> {
+  ///  State fields for stateful widgets in this component.
 
-  // Stores action output result for [Backend Call - API (getProfile)] action in Design1 widget.
-  ApiCallResponse? apiResultProfile;
-  // Stores action output result for [Backend Call - API (getProfile)] action in Column widget.
-  ApiCallResponse? apiResultProfile2;
   // State field(s) for TextField widget.
   FocusNode? textFieldFocusNode1;
   TextEditingController? textController1;
@@ -27,15 +21,15 @@ class Design1Model extends FlutterFlowModel<Design1Widget> {
   FocusNode? textFieldFocusNode4;
   TextEditingController? textController4;
   String? Function(BuildContext, String?)? textController4Validator;
-  // Model for navbarHome component.
-  late NavbarHomeModel navbarHomeModel;
+  // State field(s) for TextField widget.
+  FocusNode? textFieldFocusNode5;
+  TextEditingController? textController5;
+  String? Function(BuildContext, String?)? textController5Validator;
 
   /// Initialization and disposal methods.
 
   @override
-  void initState(BuildContext context) {
-    navbarHomeModel = createModel(context, () => NavbarHomeModel());
-  }
+  void initState(BuildContext context) {}
 
   @override
   void dispose() {
@@ -51,7 +45,8 @@ class Design1Model extends FlutterFlowModel<Design1Widget> {
     textFieldFocusNode4?.dispose();
     textController4?.dispose();
 
-    navbarHomeModel.dispose();
+    textFieldFocusNode5?.dispose();
+    textController5?.dispose();
   }
 
   /// Action blocks are added here.

@@ -87,11 +87,9 @@ class _PreloaderWidgetState extends State<PreloaderWidget>
             FFAppState().uQr = CmsGroup.getProfileCall.qrUser(
               (_model.apiResultProfile?.jsonBody ?? ''),
             )!;
-            FFAppState().uCompany = CmsGroup.getProfileCall
-                .companyUser(
-                  (_model.apiResultProfile?.jsonBody ?? ''),
-                )
-                .toString();
+            FFAppState().uCompany = CmsGroup.getProfileCall.companyUser(
+              (_model.apiResultProfile?.jsonBody ?? ''),
+            )!;
           });
 
           context.goNamed(

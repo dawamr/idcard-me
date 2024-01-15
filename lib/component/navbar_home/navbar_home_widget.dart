@@ -2,7 +2,6 @@ import '/component/barcode_view/barcode_view_widget.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import '/custom_code/actions/index.dart' as actions;
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
@@ -138,10 +137,8 @@ class _NavbarHomeWidgetState extends State<NavbarHomeWidget> {
                                   size: 30.0,
                                 ),
                                 onPressed: () async {
-                                  await actions.saveFile(
-                                    FFAppState().uName,
-                                    FFAppState().uPhone,
-                                  );
+                                  await launchURL(
+                                      'https://cmsvcard.solarion.id/assets/${FFAppState().uContactFile}');
                                 },
                               ),
                             ],

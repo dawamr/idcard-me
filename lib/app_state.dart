@@ -50,6 +50,9 @@ class FFAppState extends ChangeNotifier {
     _safeInit(() {
       _uCompany = prefs.getString('ff_uCompany') ?? _uCompany;
     });
+    _safeInit(() {
+      _uContactFile = prefs.getString('ff_uContactFile') ?? _uContactFile;
+    });
   }
 
   void update(VoidCallback callback) {
@@ -146,6 +149,13 @@ class FFAppState extends ChangeNotifier {
   String get baseUrl => _baseUrl;
   set baseUrl(String value) {
     _baseUrl = value;
+  }
+
+  String _uContactFile = '';
+  String get uContactFile => _uContactFile;
+  set uContactFile(String value) {
+    _uContactFile = value;
+    prefs.setString('ff_uContactFile', value);
   }
 }
 

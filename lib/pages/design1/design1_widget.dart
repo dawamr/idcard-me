@@ -77,11 +77,12 @@ class _Design1WidgetState extends State<Design1Widget> {
             FFAppState().uQr = CmsGroup.getProfileCall.qrUser(
               (_model.apiResultProfile?.jsonBody ?? ''),
             )!;
-            FFAppState().uCompany = CmsGroup.getProfileCall
-                .companyUser(
-                  (_model.apiResultProfile?.jsonBody ?? ''),
-                )
-                .toString();
+            FFAppState().uCompany = CmsGroup.getProfileCall.companyUser(
+              (_model.apiResultProfile?.jsonBody ?? ''),
+            )!;
+            FFAppState().uContactFile = CmsGroup.getProfileCall.contactShare(
+              (_model.apiResultProfile?.jsonBody ?? ''),
+            )!;
           });
         } else {
           context.safePop();
@@ -252,13 +253,10 @@ class _Design1WidgetState extends State<Design1Widget> {
                                             ''),
                                       )!;
                                       FFAppState().uCompany =
-                                          CmsGroup.getProfileCall
-                                              .companyUser(
-                                                (_model.apiResultProfile2
-                                                        ?.jsonBody ??
-                                                    ''),
-                                              )
-                                              .toString();
+                                          CmsGroup.getProfileCall.companyUser(
+                                        (_model.apiResultProfile2?.jsonBody ??
+                                            ''),
+                                      )!;
                                     });
                                   } else {
                                     context.safePop();
@@ -463,10 +461,9 @@ class _Design1WidgetState extends State<Design1Widget> {
                                             Text(
                                               CmsGroup.getProfileCall
                                                   .companyUser(
-                                                    design1GetProfileResponse
-                                                        .jsonBody,
-                                                  )
-                                                  .toString(),
+                                                design1GetProfileResponse
+                                                    .jsonBody,
+                                              )!,
                                               style:
                                                   FlutterFlowTheme.of(context)
                                                       .bodyMedium
@@ -1053,13 +1050,12 @@ class _Design1WidgetState extends State<Design1Widget> {
                                                   controller:
                                                       _model.textController4 ??=
                                                           TextEditingController(
-                                                    text:
-                                                        CmsGroup.getProfileCall
-                                                            .companyUser(
-                                                              design1GetProfileResponse
-                                                                  .jsonBody,
-                                                            )
-                                                            .toString(),
+                                                    text: CmsGroup
+                                                        .getProfileCall
+                                                        .companyUser(
+                                                      design1GetProfileResponse
+                                                          .jsonBody,
+                                                    ),
                                                   ),
                                                   focusNode: _model
                                                       .textFieldFocusNode4,

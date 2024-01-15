@@ -30,7 +30,8 @@ class GetProfileCall {
       },
       params: {
         'filter[slug][_eq]': name,
-        'fields': "*,photo.filename_disk,qr.filename_disk",
+        'fields':
+            "*,photo.filename_disk,qr.filename_disk,contact.filename_disk",
       },
       returnBody: true,
       encodeBodyUtf8: false,
@@ -81,10 +82,14 @@ class GetProfileCall {
         response,
         r'''$.data[:].qr.filename_disk''',
       ));
-  dynamic companyUser(dynamic response) => getJsonField(
+  String? companyUser(dynamic response) => castToType<String>(getJsonField(
         response,
         r'''$.data[:].company''',
-      );
+      ));
+  String? contactShare(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.data[:].contact.filename_disk''',
+      ));
 }
 
 /// End CMS Group Code

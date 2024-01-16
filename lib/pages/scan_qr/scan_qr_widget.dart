@@ -82,7 +82,7 @@ class _ScanQrWidgetState extends State<ScanQrWidget> {
                       Flexible(
                         child: Container(
                           width: MediaQuery.sizeOf(context).width * 0.9,
-                          height: 130.0,
+                          height: 175.0,
                           decoration: BoxDecoration(
                             color: const Color(0xF1EFEFEF),
                             borderRadius: BorderRadius.circular(20.0),
@@ -109,7 +109,7 @@ class _ScanQrWidgetState extends State<ScanQrWidget> {
                                     padding: const EdgeInsetsDirectional.fromSTEB(
                                         0.0, 5.0, 0.0, 0.0),
                                     child: Text(
-                                      '"Hey there! Want to uncover all the cool info stored in the Solarion VCard?\n\nJust scan c and dive into its treasure trove of information!"',
+                                      'Scan the barcode on the Solarion business card to view the vCard results. \n\nUse a barcode scanner on Chrome, Safari, or any other barcode scanning app.\n\n For Android users, you can try downloading the Solarion vCard from the Play Store.',
                                       textAlign: TextAlign.center,
                                       style: FlutterFlowTheme.of(context)
                                           .bodyMedium
@@ -140,8 +140,8 @@ class _ScanQrWidgetState extends State<ScanQrWidget> {
                               ClipRRect(
                                 borderRadius: BorderRadius.circular(8.0),
                                 child: Image.asset(
-                                  'assets/images/frame.png',
-                                  width: 250.0,
+                                  'assets/images/identification-card_(3).png',
+                                  width: 225.0,
                                   fit: BoxFit.cover,
                                 ),
                               ),
@@ -152,8 +152,10 @@ class _ScanQrWidgetState extends State<ScanQrWidget> {
                                   child: FFButtonWidget(
                                     onPressed: () async {
                                       if (isWeb) {
-                                        await launchURL(
-                                            'https://play.google.com/store/apps/details?id=com.solarion.idcard&pcampaignid=web_share');
+                                        if (isAndroid) {
+                                          await launchURL(
+                                              'https://play.google.com/store/apps/details?id=com.solarion.idcard&pcampaignid=web_share');
+                                        }
                                       } else {
                                         _model.scanQr =
                                             await FlutterBarcodeScanner
